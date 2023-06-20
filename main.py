@@ -18,7 +18,7 @@ url = "https://data.metropole-dijon.fr/api/records/1.0/search/?dataset=dispo-par
 
 response = requests.get(url)
 response.raise_for_status()
-now = datetime.datetime.now().replace(microsecond=0).isoformat()
+now = datetime.datetime.utcnow().replace(microsecond=0).isoformat()
 data = []
 for record in response.json()["records"]:
     fields = record["fields"]
